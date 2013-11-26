@@ -1,0 +1,5 @@
+<form action="/user/create" method="post" name="user" id="user">
+  <input type="text" name="user[handle]" /><br />
+  <input type="password" name="user[password]" /><br />
+  <input type="submit" value="Submit" />
+</form>

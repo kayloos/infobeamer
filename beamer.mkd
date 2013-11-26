@@ -1,3 +1,34 @@
-{- iteration rssitems -}
-  {- rssitems.title -}
-{- end -}
+use beamer as thing on CV.
+mabbe hemplate too?
+
+How to fetch rss feeds:
+
+with haskell:
+- blocks server
+
+with js:
+- does not block server
+- server does not have to do any work
+- address has to be relayed from server
+
+- have feed urls in db
+- for each feed url fetch feed and parse in js
+- CANT FUCKING DO AJAX CROSS DOMAINS, What BullSHIT!!
+
+with both:
+- ajax requests to own server
+- respodns with json objects containing rss data
+- done this way awesome.
+
+Next step:
+1. make user system.
+- Should be easy to register,
+- Aggressively delete inactive accounts (after 3 months)
+
+2. rearranging feeds
+- Should be able to rearrange feed with mouse/keyboard shortcuts
+
+3. full-size feed
+- Click in feed, feed maximizes
+- Click again, feed back to normal.
+

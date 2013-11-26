@@ -1,0 +1,22 @@
+<rss version=\"2.0\">
+<channel>
+<title>Hacker News</title>
+<link>https:&#x2F;&#x2F;news.ycombinator.com&#x2F;</link>
+<description>
+Links for the intellectually curious, ranked by readers.</description>
+<item>
+  <title>Item 1</title>
+  <link>Link 1</link>
+  <description>Desc 1</description>
+</item>
+<item>
+  <title>Item 2</title>
+  <link>Link 2</link>
+  <description>Desc 2</description>
+</item>
+<item>
+  <title>Item 3</title>
+  <link>Link 3</link>
+  <description>Desc 3</description>
+</item>
+</channel></rss>

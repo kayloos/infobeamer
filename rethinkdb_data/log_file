@@ -1,0 +1,59 @@
+2013-11-09T12:42:37.673724000 0.291997s info: Creating directory /Users/kalusn/Sites/infobeamer/rethinkdb_data
+2013-11-09T12:42:37.674896000 0.293168s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/kalusn/Sites/infobeamer/rethinkdb_data' did not already exist.)
+2013-11-09T12:42:37.674974000 0.293246s info: Running rethinkdb 1.9.0 (CLANG 4.2 (clang-425.0.24))...
+2013-11-09T12:42:37.683251000 0.301523s info: Running on Darwin 13.0.0 x86_64
+2013-11-09T12:42:37.683317000 0.301589s info: Loading data from directory /Users/kalusn/Sites/infobeamer/rethinkdb_data
+2013-11-09T12:42:38.159739000 0.778058s info: Listening for intracluster connections on port 29015
+2013-11-09T12:42:38.164149000 0.782468s info: Listening for client driver connections on port 28015
+2013-11-09T12:42:38.164177000 0.782496s info: Listening for administrative HTTP connections on port 8080
+2013-11-09T12:42:38.164180000 0.782499s info: Listening on addresses: 127.0.0.1
+2013-11-09T12:42:38.164182000 0.782501s info: To fully expose RethinkDB on the network, bind to all addresses
+2013-11-09T12:42:38.164183000 0.782502s info: by running rethinkdb with the `--bind all` command line option.
+2013-11-09T12:42:38.164184000 0.782503s info: Server ready
+2013-11-09T12:43:18.558704000 41.178885s info: Applying data {"databases":{"new":{"name":"infobeamer"}}}
+2013-11-09T12:43:36.229544000 58.850563s info: Applying data {"rdb_namespaces":{"new":{"name":"feeds","primary_uuid":"00000000-0000-0000-0000-000000000000","database":"29d14405-cee3-4180-be76-c27dbf7cef91","ack_expectations":{"00000000-0000-0000-0000-000000000000":{"expectation":1,"hard_durability":true}}}}}
+2013-11-09T14:38:34.461770000 6840.063645s info: Server got SIGINT; shutting down...
+2013-11-09T14:38:34.462060000 6840.063935s info: Shutting down client connections...
+2013-11-09T14:38:34.462540000 6840.064415s info: All client connections closed.
+2013-11-09T14:38:34.462550000 6840.064425s info: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2013-11-09T14:38:34.464309000 6840.066184s info: Storage engine shut down.
+2013-11-12T00:58:26.169039000 0.305272s info: Running rethinkdb 1.9.0 (CLANG 4.2 (clang-425.0.24))...
+2013-11-12T00:58:26.177328000 0.313561s info: Running on Darwin 13.0.0 x86_64
+2013-11-12T00:58:26.177393000 0.313625s info: Loading data from directory /Users/kalusn/Sites/infobeamer/rethinkdb_data
+2013-11-12T00:58:26.196034000 0.332267s info: Listening for intracluster connections on port 29015
+2013-11-12T00:58:26.198588000 0.334821s info: Listening for client driver connections on port 28015
+2013-11-12T00:58:26.198608000 0.334840s info: Listening for administrative HTTP connections on port 8080
+2013-11-12T00:58:26.198610000 0.334842s info: Listening on addresses: 127.0.0.1
+2013-11-12T00:58:26.198611000 0.334843s info: To fully expose RethinkDB on the network, bind to all addresses
+2013-11-12T00:58:26.198611000 0.334844s info: by running rethinkdb with the `--bind all` command line option.
+2013-11-12T00:58:26.198612000 0.334845s info: Server ready
+2013-11-12T02:39:10.312398000 6044.563532s info: Server got SIGINT; shutting down...
+2013-11-12T02:39:10.312793000 6044.563927s info: Shutting down client connections...
+2013-11-12T02:39:10.313097000 6044.564230s info: All client connections closed.
+2013-11-12T02:39:10.313106000 6044.564239s info: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2013-11-12T02:39:10.324865000 6044.575999s info: Storage engine shut down.
+2013-11-12T10:50:28.991365000 0.296227s info: Running rethinkdb 1.9.0 (CLANG 4.2 (clang-425.0.24))...
+2013-11-12T10:50:28.999203000 0.304065s info: Running on Darwin 13.0.0 x86_64
+2013-11-12T10:50:28.999262000 0.304123s info: Loading data from directory /Users/kalusn/Sites/infobeamer/rethinkdb_data
+2013-11-12T10:50:29.018258000 0.323119s info: Listening for intracluster connections on port 29015
+2013-11-12T10:50:29.020671000 0.325532s info: Listening for client driver connections on port 28015
+2013-11-12T10:50:29.020691000 0.325552s info: Listening for administrative HTTP connections on port 8080
+2013-11-12T10:50:29.020693000 0.325554s info: Listening on addresses: 127.0.0.1
+2013-11-12T10:50:29.020694000 0.325555s info: To fully expose RethinkDB on the network, bind to all addresses
+2013-11-12T10:50:29.020695000 0.325556s info: by running rethinkdb with the `--bind all` command line option.
+2013-11-12T10:50:29.020696000 0.325557s info: Server ready
+2013-11-24T12:38:38.805276000 482076.578292s info: Server got SIGINT; shutting down...
+2013-11-24T12:38:38.805473000 482076.578489s info: Shutting down client connections...
+2013-11-24T12:38:38.805764000 482076.578780s info: All client connections closed.
+2013-11-24T12:38:38.805770000 482076.578786s info: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2013-11-24T12:38:38.807268000 482076.580284s info: Storage engine shut down.
+2013-11-24T17:07:52.313297000 0.314387s info: Running rethinkdb 1.9.0 (CLANG 4.2 (clang-425.0.24))...
+2013-11-24T17:07:52.320659000 0.321750s info: Running on Darwin 13.0.0 x86_64
+2013-11-24T17:07:52.320713000 0.321803s info: Loading data from directory /Users/kalusn/Sites/infobeamer/rethinkdb_data
+2013-11-24T17:07:52.339058000 0.340147s info: Listening for intracluster connections on port 29015
+2013-11-24T17:07:52.341513000 0.342602s info: Listening for client driver connections on port 28015
+2013-11-24T17:07:52.341532000 0.342622s info: Listening for administrative HTTP connections on port 8080
+2013-11-24T17:07:52.341534000 0.342624s info: Listening on addresses: 127.0.0.1
+2013-11-24T17:07:52.341535000 0.342625s info: To fully expose RethinkDB on the network, bind to all addresses
+2013-11-24T17:07:52.341536000 0.342626s info: by running rethinkdb with the `--bind all` command line option.
+2013-11-24T17:07:52.341537000 0.342626s info: Server ready

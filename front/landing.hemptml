@@ -1,0 +1,11 @@
+<section class="feeds">
+{- iteration rss -}
+  <div class="feed" data-href="{- rss.link -}">
+    <a href='/feed/delete/{- rss.id -}'>Remove from your feeds</a>
+  </div>
+{- end -}
+</section>
+<div class="clear"></div>
+
+<script src="js/jquery.js"></script>
+<script src="js/landing.js"></script>
