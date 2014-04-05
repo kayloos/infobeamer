@@ -24,7 +24,7 @@ storage = PCConn $ ConnBuilder {
   }
 
 main :: IO ()
-main = spock 3000 storage [] $ do
+main = spock 3000 sessCfg storage [] $ do
   get "/" $ do
     rss <- runQuery $ run $ R.table "feeds"
     str <- render' "landing" ["rss" =: Prelude.map bsonifyValue rss]
@@ -42,3 +42,6 @@ main = spock 3000 storage [] $ do
 
   feedActions
   userActions
+
+sessCfg :: SessionCfg [String]
+sessCfg = SessionCfg "infobeamer" (60 * 60 * 30) 348 []

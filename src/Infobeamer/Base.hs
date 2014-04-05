@@ -19,7 +19,6 @@ import Hemplate.Base
 import Text.XML.Light.Input
 import Text.RSS.Import
 import Text.RSS.Syntax
-import Web.Scotty.Trans (ActionT)
 
 import Infobeamer.ErrorMessages
 
@@ -56,7 +55,7 @@ fetchFeed target = do
     (CurlOK, str) -> return str
     (code, str)   -> left $ curlFail $ show code
 
-getRss :: MonadIO m => String -> ActionT m Document
+getRss :: MonadIO m => String -> m Document
 getRss str = do
   foo <- liftIO $ runEitherT $ rssDict str
   case foo of

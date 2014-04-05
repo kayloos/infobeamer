@@ -1,3 +1,4 @@
 rethinkdb_data/
 dist/
 .cabal-sandbox/
+cabal-dev
