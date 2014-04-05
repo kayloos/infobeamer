@@ -26,7 +26,7 @@ type RSSRenderer a = EitherT String IO a
 
 render' ::  MonadIO m => FilePath -> Document -> m L.Text
 render' target dict = do
-  res <- liftIO $ renderHemplate "../front/application.html" ("../front/" ++ target ++ ".hemptml") dict
+  res <- liftIO $ renderHemplate "front/application.html" ("front/" ++ target ++ ".hemptml") dict
   return $ L.fromStrict res
 
 -- Use hemplate to render RSS items

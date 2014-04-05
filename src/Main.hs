@@ -33,12 +33,12 @@ main = spock 3000 sessCfg storage [] $ do
   get "/js/:name" $ do
     fileName <- param "name"
     setHeader "Content-type" "application/javascript"
-    file $ "../front/js/" ++ fileName
+    file $ "front/js/" ++ fileName
 
   get "/css/:name" $ do
     fileName <- param "name"
     setHeader "Content-type" "text/css"
-    file $ "../front/css/" ++ fileName
+    file $ "front/css/" ++ fileName
 
   feedActions
   userActions
