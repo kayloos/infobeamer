@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Base where
+module Infobeamer.Base where
 
 import Control.Monad.IO.Class (MonadIO, liftIO)
 import Control.Monad.Error.Class (MonadError)
@@ -19,15 +19,15 @@ import Hemplate.Base
 import Text.XML.Light.Input
 import Text.RSS.Import
 import Text.RSS.Syntax
-import Web.Scotty
+import Web.Scotty.Trans (ActionT)
 
-import ErrorMessages
+import Infobeamer.ErrorMessages
 
 type RSSRenderer a = EitherT String IO a
 
 render' ::  MonadIO m => FilePath -> Document -> m L.Text
 render' target dict = do
-  res <- liftIO $ renderHemplate "front/application.html" ("front/" ++ target ++ ".hemptml") dict
+  res <- liftIO $ renderHemplate "../front/application.html" ("../front/" ++ target ++ ".hemptml") dict
   return $ L.fromStrict res
 
 -- Use hemplate to render RSS items
@@ -51,18 +51,21 @@ rssDict url = do
 
 fetchFeed :: String -> RSSRenderer String
 fetchFeed target = do
-  response <- liftIO $ curlGetString target []
+  response <- liftIO $ curlGetString_ target []
   case response of
     (CurlOK, str) -> return str
     (code, str)   -> left $ curlFail $ show code
 
-getRss :: String -> ActionM Document
+getRss :: MonadIO m => String -> ActionT m Document
 getRss str = do
   foo <- liftIO $ runEitherT $ rssDict str
   case foo of
-    Left e    -> raise $ "Could not interpret feed:\n" `L.append` L.pack e
+    Left e    -> error $ "Could not interpret feed:\n" ++ e
     Right doc -> return doc
 
-openConnection :: MonadIO m => m R.RethinkDBHandle
-openConnection = liftIO $ liftM (flip R.use (R.db "infobeamer"))
-                                (R.connect "localhost" 28015 Nothing)
+openConnection :: IO R.RethinkDBHandle
+openConnection = liftM (flip R.use (R.db "infobeamer"))
+                       (R.connect "localhost" 28015 Nothing)
+
+run a b = R.run b a
+run' a b = R.run' b a

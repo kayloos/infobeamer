@@ -10,38 +10,35 @@ import qualified Data.Text.Lazy as L
 import qualified Database.RethinkDB as R
 
 import Hemplate.Base
-import Web.Scotty
-import Web.Scotty.Session
+import Web.Spock
 
-import Base
-import ErrorMessages
-import Feed
-import User
+import Infobeamer.Base
+import Infobeamer.ErrorMessages
+import Infobeamer.Feed
+import Infobeamer.User
 
+storage = PCConn $ ConnBuilder {
+    cb_createConn = openConnection,
+    cb_destroyConn  = R.close,
+    cb_poolConfiguration = PoolCfg { pc_stripes = 1, pc_resPerStripe = 1, pc_keepOpenTime = 3000 }
+  }
 
 main :: IO ()
-main = scotty 3000 $ do
-  h <- openConnection
-  sesh <- createSessionManager
+main = spock 3000 storage [] $ do
   get "/" $ do
-    rss <- liftIO $ R.run h (R.table "feeds")
+    rss <- runQuery $ run $ R.table "feeds"
     str <- render' "landing" ["rss" =: Prelude.map bsonifyValue rss]
     html str
 
   get "/js/:name" $ do
     fileName <- param "name"
     setHeader "Content-type" "application/javascript"
-    file $ "front/js/" ++ fileName
+    file $ "../front/js/" ++ fileName
 
   get "/css/:name" $ do
     fileName <- param "name"
     setHeader "Content-type" "text/css"
-    file $ "front/css/" ++ fileName
+    file $ "../front/css/" ++ fileName
 
-  feedArg h [feedActions, userActions]
-
-  where
-    feedArg :: Monad m => a -> [a -> m b] -> m ()
-    feedArg a [] = return ()
-    feedArg a (x:xs) = x a >> feedArg a xs
-    bsonifyValue' (R.JSON val) = bsonifyValue val
+  feedActions
+  userActions

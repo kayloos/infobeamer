@@ -1,4 +1,4 @@
-module ErrorMessages where
+module Infobeamer.ErrorMessages where
 
 rawToXmlFail = "Could not convert raw data to XML."
 

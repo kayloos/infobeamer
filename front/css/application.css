@@ -37,6 +37,9 @@ footer {
   position: absolute;
   top: 40%;
   left: 40%;
+  background: white;
+  padding: 10px;
+  border: 2px solid black;
 }
 
 .clear {
