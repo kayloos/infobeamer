@@ -11,6 +11,7 @@ import qualified Database.RethinkDB as R
 
 import Hemplate.Base
 import Web.Spock
+import Web.Spock.Auth
 
 import Infobeamer.Base
 import Infobeamer.ErrorMessages
@@ -42,6 +43,6 @@ main = spock 3000 sessCfg storage [] $ do
 
   feedActions
   userActions
-
-sessCfg :: SessionCfg [String]
-sessCfg = SessionCfg "infobeamer" (60 * 60 * 30) 348 []
+    where
+      sessCfg =
+          authSessCfg (AuthCfg (5 * 60 * 60) ())
