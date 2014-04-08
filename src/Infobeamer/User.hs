@@ -36,18 +36,35 @@ userActions = do
                                           ["handle", "password"]
                                           [handle, pw]
 
+
+
   {- -- FIXME: password matches confirmation unchecked. -}
     if Prelude.null errs
         then do
-          res <- runQuery $ run' $ R.table "users" R.#
-                   R.insert (R.obj [ "handle" R.:= R.str handle
-                                   , "pw"     R.:= R.str pw
-                                   ])
-          return res
+          runQuery $ run' $ R.table "users" R.#
+            R.insert (R.obj [ "handle" R.:= R.str handle
+                            , "pw"     R.:= R.str pw
+                            ])
           
         else raise $ "Validation error " `L.append` L.pack (show errs)
     redirect "/"
 
+getUserId :: Text -> Text -> R.RethinkDBHandle -> IO Text 
+getUserId userHandle password handle = do
+  user <- R.run handle $ (R.getAll "handle" [userHandle] (R.table "users"))
+  pw   <- R.run handle (user R.! "password")
+  case pw of
+    Just str ->
+      if str == password
+         then do
+           id <- R.run handle $ user R.! "id"
+           case id of
+             Just str -> return str
+             Nothing -> return "bob"
+         else return "bob"
+    Nothing -> return "bob"
+
+createSession = undefined
 
 performValidations :: [Validation R.RethinkDBHandle ()] -> [Column] -> [Subject] ->
                       R.RethinkDBHandle -> IO [Message]
