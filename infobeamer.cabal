@@ -36,4 +36,6 @@ executable infobeamer
                      AesonBson == 0.2.1,
                      either == 4.0,
                      mtl == 2.1.2,
-                     aeson == 0.6.2.1
+                     aeson == 0.6.2.1,
+                     time == 1.4.0.1
+  extensions:        OverloadedStrings
